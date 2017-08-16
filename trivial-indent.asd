@@ -4,10 +4,6 @@
  Author: Nicolas Hafner <shinmera@tymoon.eu>
 |#
 
-(defpackage org.tymoonnext.radiance.lib.trivial-indent.asdf
-  (:use #:cl #:asdf))
-(in-package :org.tymoonnext.radiance.lib.trivial-indent.asdf)
-
 (defsystem trivial-indent
   :name "Trivial-Indent"
   :version "1.0.0"
