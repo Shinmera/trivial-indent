@@ -11,7 +11,9 @@
   :author "Nicolas Hafner <shinmera@tymoon.eu>"
   :maintainer "Nicolas Hafner <shinmera@tymoon.eu>"
   :description "A very simple library to allow indentation hints for SWANK."
-  :long-description ""
+  :homepage "https://shinmera.github.io/trivial-indent/"
+  :bug-tracker "https://github.com/Shinmera/trivial-indent/issues"
+  :source-control (:git "https://github.com/Shinmera/trivial-indent.git")
   :serial T
   :components ((:file "indent"))
   :depends-on ())
