@@ -52,4 +52,19 @@ This is automatically called when TRIVIAL-INDENT is loaded."
         (set tables (cons *indentation-hints* (remove *indentation-hints* (symbol-value tables))))
         t))))
 
+(defun initialize-sly ()
+  "Attempts to initialize sly with our indentation table.
+If SLYNK/INDENTATION is not loaded, this does nothing.
+It should be safe to call this function regardless of whether
+SLYNK is loaded at all or not.
+
+This is automatically called when TRIVIAL-INDENT is loaded."
+  (when (member "SLYNK/INDENTATION" *modules* :test #'string=)
+    (let* ((slynk (find-package :slynk))
+           (tables (when slynk (find-symbol (string '#:*application-hints-tables*) slynk))))
+      (when tables
+        (set tables (cons *indentation-hints* (remove *indentation-hints* (symbol-value tables))))
+        t))))
+
 (initialize-slime)
+(initialize-sly)
