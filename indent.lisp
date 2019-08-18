@@ -11,7 +11,8 @@
    #:indentation
    #:define-indentation
    #:remove-indentation
-   #:initialize-slime))
+   #:initialize-slime
+   #:initialize-sly))
 
 (in-package #:org.tymoonnext.radiance.lib.trivial-indent)
 
