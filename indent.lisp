@@ -18,16 +18,14 @@
 
 (defvar *indentation-hints* (make-hash-table :test #'eq))
 
-(defmacro with-symbol (name-symbol-package-module &body body)
+(defmacro with-symbol ((name symbol package module) &body body)
   "Check if SYMBOL exists in PACKAGE when MODULE is loaded and bind it to NAME."
-  (destructuring-bind (name symbol package module)
-      name-symbol-package-module
-    (let ((pkg (gensym)))
-      `(when (member ,module *modules* :test #'string=)
-         (let* ((,pkg (find-package ,package))
-                (,name (when ,pkg (find-symbol (string ,symbol) ,pkg))))
-           (when ,name
-             ,@body))))))
+  (let ((pkg (gensym)))
+    `(when (member ,module *modules* :test #'string=)
+       (let* ((,pkg (find-package ,package))
+              (,name (when ,pkg (find-symbol (string ,symbol) ,pkg))))
+         (when ,name
+           ,@body)))))
 
 (defun indentation (symbol)
   "Returns the custom defined indentation of a symbol if there is any. SETF-able."
