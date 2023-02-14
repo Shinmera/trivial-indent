@@ -51,7 +51,12 @@ Example: (define-indentation defmacro (4 &lambda &body))"
 
 (defun remove-indentation (symbol)
   "Remove the indentation hint for a symbol."
-  (remhash symbol *indentation-hints*))
+  (remhash symbol *indentation-hints*)
+  (with-symbol (update '#:update-indentation-information :swank "SWANK-INDENTATION")
+    (funcall (symbol-function update)))
+  (with-symbol (update '#:update-indentation-information :slynk "SLYNK/INDENTATION")
+    (funcall (symbol-function update)))
+  symbol)
 
 (defun initialize-slime ()
   "Attempts to initialize slime with our indentation table.
