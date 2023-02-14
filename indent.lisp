@@ -33,6 +33,8 @@
 
 (defun (setf indentation) (rule-form symbol)
   "Sets the indentation hint for a symbol."
+  (initialize-slime)
+  (initialize-sly)
   (setf (gethash symbol *indentation-hints*) rule-form)
   (with-symbol (update '#:update-indentation-information :swank "SWANK-INDENTATION")
     (funcall (symbol-function update)))
@@ -51,6 +53,8 @@ Example: (define-indentation defmacro (4 &lambda &body))"
 
 (defun remove-indentation (symbol)
   "Remove the indentation hint for a symbol."
+  (initialize-slime)
+  (initialize-sly)
   (remhash symbol *indentation-hints*)
   (with-symbol (update '#:update-indentation-information :swank "SWANK-INDENTATION")
     (funcall (symbol-function update)))
