@@ -1,9 +1,3 @@
-#|
- This file is a part of Trivial-Indent
- (c) 2014 Shirakumo http://tymoon.eu (shinmera@tymoon.eu)
- Author: Nicolas Hafner <shinmera@tymoon.eu>
-|#
-
 (defpackage #:trivial-indent
   (:use #:cl)
   (:nicknames #:org.tymoonnext.radiance.lib.trivial-indent #:indent)
