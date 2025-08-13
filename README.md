@@ -1,15 +1,4 @@
-About Trivial-Indent
---------------------
-This allows you to define custom indentation hints for your macros if the one recognised by Slime automatically produces unwanted results.
+# This repository has [moved](https://shinmera.com/projects/trivial-indent)!
+Due to Microsoft's continued enshittification of the platform this repository has been moved to [Codeberg](https://shinmera.com/projects/trivial-indent) in August of 2025. It will not receive further updates or patches. **Issues and pull requests will not be looked at here either**, please submit your patches and issue tickets on Codeberg, or send them directly via good old email patches to [shirakumo@tymoon.eu](mailto:shirakumo@tymoon.eu).
 
-How To
-------
-The only feature of this that you will really need to use is `DEFINE-INDENTATION`.
-
-```
-(define-indentation defmacro (4 &lambda &body))
-(define-indentation something-more-complex (4 &rest (&whole 2 0 4 &body)))
-```
-
-For more information on how the indentation rule forms work, please refer to the Slime source and documentation.
-Otherwise just faffing about until it produces the indentation you need works well too.
+Thanks.
